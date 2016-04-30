@@ -3,6 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using eListaGrzybiarze.DAL;
+using eListaGrzybiarze.Models;
+using Microsoft.AspNet.Identity;
 
 namespace eListaGrzybiarze.Controllers
 {
@@ -25,6 +28,22 @@ namespace eListaGrzybiarze.Controllers
             ViewBag.Message = "Your contact page.";
 
             return View();
+        }
+
+        public ActionResult Obecnosc()
+        {
+            eListaContext db = new eListaContext();
+            UserConnector connector = new UserConnector();
+            foreach (var connect in db.Userzy)
+            {
+                if (connect.UserName == User.Identity.Name)
+                {
+                    connector.ID = connect.ID;
+                }
+            }
+            Pracownik pracownik = db.Pracownik.Find(connector.ID);
+            ViewBag.Message = "Potwierdzanie obecności.";
+            return View(pracownik);
         }
     }
 }

@@ -181,18 +181,31 @@ IF fulltextserviceproperty(N'IsFulltextInstalled') = 1
 
 
 GO
-PRINT N'Creating [dbo].[uzytkownik]...';
+PRINT N'Creating [dbo].[uzytkownik_grupa]...';
 
 
 GO
-CREATE TABLE [dbo].[uzytkownik] (
-    [id]       BIGINT        NOT NULL,
-    [imie]     VARCHAR (255) NOT NULL,
-    [nazwisko] VARCHAR (255) NOT NULL,
-    [email]    VARCHAR (255) NOT NULL,
-    [haslo]    VARCHAR (255) NOT NULL,
-    [telefon]  VARCHAR (15)  NOT NULL,
-    [aktywny]  BIT           NOT NULL,
+CREATE TABLE [dbo].[uzytkownik_grupa] (
+    [id]            BIGINT        NOT NULL,
+    [id_uzytkownik] BIGINT        NOT NULL,
+    [grupa]         VARCHAR (255) NOT NULL,
+    [cdfsfsdfsd]    NCHAR (10)    NULL,
+    PRIMARY KEY CLUSTERED ([id] ASC)
+);
+
+
+GO
+PRINT N'Creating [dbo].[czas_pracy]...';
+
+
+GO
+CREATE TABLE [dbo].[czas_pracy] (
+    [id]            BIGINT        NOT NULL,
+    [id_uzytkownik] BIGINT        NOT NULL,
+    [zakres_prac]   VARCHAR (255) NOT NULL,
+    [dzien]         DATE          NOT NULL,
+    [rozpoczecie]   DATE          NOT NULL,
+    [zakonczenie]   DATE          NOT NULL,
     PRIMARY KEY CLUSTERED ([id] ASC)
 );
 
@@ -228,19 +241,38 @@ CREATE TABLE [dbo].[dziennik_planow] (
 
 
 GO
-PRINT N'Creating [dbo].[czas_pracy]...';
+PRINT N'Creating [dbo].[uzytkownik]...';
 
 
 GO
-CREATE TABLE [dbo].[czas_pracy] (
-    [id]            BIGINT        NOT NULL,
-    [id_uzytkownik] BIGINT        NOT NULL,
-    [zakres_prac]   VARCHAR (255) NOT NULL,
-    [dzien]         DATE          NOT NULL,
-    [rozpoczecie]   DATE          NOT NULL,
-    [zakonczenie]   DATE          NOT NULL,
+CREATE TABLE [dbo].[uzytkownik] (
+    [id]       BIGINT        NOT NULL,
+    [imie]     VARCHAR (255) NOT NULL,
+    [nazwisko] VARCHAR (255) NOT NULL,
+    [email]    VARCHAR (255) NOT NULL,
+    [haslo]    VARCHAR (255) NOT NULL,
+    [telefon]  VARCHAR (15)  NOT NULL,
+    [aktywny]  BIT           NOT NULL,
     PRIMARY KEY CLUSTERED ([id] ASC)
 );
+
+
+GO
+PRINT N'Creating FK_uzytkownik_grupa_uzytkownik...';
+
+
+GO
+ALTER TABLE [dbo].[uzytkownik_grupa]
+    ADD CONSTRAINT [FK_uzytkownik_grupa_uzytkownik] FOREIGN KEY ([id_uzytkownik]) REFERENCES [dbo].[uzytkownik] ([id]);
+
+
+GO
+PRINT N'Creating FK_czas_pracy_uzytkownik...';
+
+
+GO
+ALTER TABLE [dbo].[czas_pracy]
+    ADD CONSTRAINT [FK_czas_pracy_uzytkownik] FOREIGN KEY ([id_uzytkownik]) REFERENCES [dbo].[uzytkownik] ([id]);
 
 
 GO
@@ -262,15 +294,6 @@ ALTER TABLE [dbo].[dziennik_planow]
 
 
 GO
-PRINT N'Creating FK_czas_pracy_uzytkownik...';
-
-
-GO
-ALTER TABLE [dbo].[czas_pracy]
-    ADD CONSTRAINT [FK_czas_pracy_uzytkownik] FOREIGN KEY ([id_uzytkownik]) REFERENCES [dbo].[uzytkownik] ([id]);
-
-
-GO
 -- Refactoring step to update target server with deployed transaction logs
 
 IF OBJECT_ID(N'dbo.__RefactorLog') IS NULL
@@ -289,6 +312,8 @@ IF NOT EXISTS (SELECT OperationKey FROM [dbo].[__RefactorLog] WHERE OperationKey
 INSERT INTO [dbo].[__RefactorLog] (OperationKey) values ('d79d6c84-0814-42ef-9bf8-a591d3065d80')
 IF NOT EXISTS (SELECT OperationKey FROM [dbo].[__RefactorLog] WHERE OperationKey = 'c6282e71-983c-41ba-8927-fb8622f3d70d')
 INSERT INTO [dbo].[__RefactorLog] (OperationKey) values ('c6282e71-983c-41ba-8927-fb8622f3d70d')
+IF NOT EXISTS (SELECT OperationKey FROM [dbo].[__RefactorLog] WHERE OperationKey = '3dfe723f-8631-4d3e-998e-5f28be08bef9')
+INSERT INTO [dbo].[__RefactorLog] (OperationKey) values ('3dfe723f-8631-4d3e-998e-5f28be08bef9')
 
 GO
 

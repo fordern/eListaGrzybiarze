@@ -1,0 +1,21 @@
+﻿@model eListaGrzybiarze.Models.Pracownik
+
+<div>
+
+    @if (Model.DniPracy.Last().KoniecPracy.HasValue)
+    {
+        <h3>Kliknij, aby potwierdzić obecność w pracy:</h3>
+        <br/>
+        <a href="@Url.Action("RozpocznijPrace", "Pracownik")" class="btn btn-primary">Potwierdź!</a>
+    }
+    else
+    {
+        <h4>Kliknij, aby zakończyć pracę na dziś.</h4>
+        <h6>(przynajmniej dla szefa, hehe)</h6>
+        <br />
+        <a href="@Url.Action("ZakonczPrace", "Pracownik", new {id = Model.ID})" class="btn btn-primary">Zakończ!</a>
+    }
+
+
+</div>
+

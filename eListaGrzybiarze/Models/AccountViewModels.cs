@@ -1,4 +1,6 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using System;
+using System.ComponentModel.DataAnnotations;
+using Microsoft.AspNet.Identity;
 
 namespace eListaGrzybiarze.Models
 {
@@ -98,4 +100,5 @@ namespace eListaGrzybiarze.Models
         [Display(Name = "Email")]
         public string Email { get; set; }
     }
+
 }

@@ -3,3 +3,12 @@ C:\Users\Ernest\Desktop\eListaGrzybiarze-master\eListaSQL\bin\Debug\eListaSQL.dl
 C:\Users\Ernest\Desktop\eListaGrzybiarze-master\eListaSQL\bin\Debug\eListaSQL.pdb
 C:\Users\Ernest\Desktop\eListaGrzybiarze-master\eListaSQL\obj\Debug\eListaSQL.dll
 C:\Users\Ernest\Desktop\eListaGrzybiarze-master\eListaSQL\obj\Debug\eListaSQL.pdb
+C:\Users\forde_000\documents\visual studio 2013\Projects\eListaGrzybiarze\eListaSQL\bin\Debug\eListaSQL.dacpac
+C:\Users\forde_000\documents\visual studio 2013\Projects\eListaGrzybiarze\eListaSQL\bin\Debug\eListaSQL.dll
+C:\Users\forde_000\documents\visual studio 2013\Projects\eListaGrzybiarze\eListaSQL\bin\Debug\eListaSQL.pdb
+C:\Users\forde_000\documents\visual studio 2013\Projects\eListaGrzybiarze\eListaSQL\obj\Debug\Model.xml
+C:\Users\forde_000\documents\visual studio 2013\Projects\eListaGrzybiarze\eListaSQL\obj\Debug\refactor.xml
+C:\Users\forde_000\documents\visual studio 2013\Projects\eListaGrzybiarze\eListaSQL\obj\Debug\postdeploy.sql
+C:\Users\forde_000\documents\visual studio 2013\Projects\eListaGrzybiarze\eListaSQL\obj\Debug\predeploy.sql
+C:\Users\forde_000\documents\visual studio 2013\Projects\eListaGrzybiarze\eListaSQL\obj\Debug\eListaSQL.dll
+C:\Users\forde_000\documents\visual studio 2013\Projects\eListaGrzybiarze\eListaSQL\obj\Debug\eListaSQL.pdb

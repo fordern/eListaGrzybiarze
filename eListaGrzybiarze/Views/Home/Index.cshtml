@@ -11,18 +11,18 @@
     <div class="col-md-4">
         <h2>Czas pracy</h2>
         <p>
-            Zobacz ile przepracowałeś w tym tygodniu.
+            Zobacz historię swoich meldunków w pracy.
         </p>
-        <p><a class="btn btn-default" href="http://go.microsoft.com/fwlink/?LinkId=301865">Zobacz &raquo;</a></p>
+        <p><a class="btn btn-default" href="@Url.Action("Details", "Pracownik")">Zobacz &raquo;</a></p>
     </div>
     <div class="col-md-4">
-        <h2>Nieobecności</h2>
-        <p>Sprawdź w jakie dni nie było cię w pracy.</p>
-        <p><a class="btn btn-default" href="http://go.microsoft.com/fwlink/?LinkId=301866">Sprawdź &raquo;</a></p>
+        <h2>Obecności</h2>
+        <p>Potwierdź swoją obecność, lub zakończ pracę na dziś.</p>
+        <p><a class="btn btn-default" href="@Url.Action("Obecnosc", "Home")">Potwierdź &raquo;</a></p>
     </div>
     <div class="col-md-4">
         <h2>Zarządzaj Kontem</h2>
-        <p>Edytuj swoje dane osobowę</p>
-        <p><a class="btn btn-default" href="http://go.microsoft.com/fwlink/?LinkId=301867">Przejdź &raquo;</a></p>
+        <p>Edytuj swoje dane osobowe</p>
+        <p><a class="btn btn-default" href="@Url.Action("Edit", "Pracownik")">Zarządzaj &raquo;</a></p>
     </div>
 </div>
