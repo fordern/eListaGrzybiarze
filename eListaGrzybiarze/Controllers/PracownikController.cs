@@ -11,6 +11,7 @@ using eListaGrzybiarze.Models;
 
 namespace eListaGrzybiarze.Controllers
 {
+    [Authorize]
     public class PracownikController : Controller
     {
         private eListaContext db = new eListaContext(); 

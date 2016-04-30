@@ -30,6 +30,7 @@ namespace eListaGrzybiarze.Controllers
             return View();
         }
 
+        [Authorize]
         public ActionResult Obecnosc()
         {
             eListaContext db = new eListaContext();
