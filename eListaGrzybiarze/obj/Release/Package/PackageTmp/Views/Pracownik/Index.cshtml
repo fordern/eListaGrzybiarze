@@ -1,0 +1,43 @@
+﻿@model IEnumerable<eListaGrzybiarze.Models.Pracownik>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            Nazwisko
+        </th>
+        <th>
+            Imię
+        </th>
+        <th>
+            Data urodzenia
+        </th>
+        <th>Opcje</th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.LastName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.FirstName)
+        </td>
+        <td>
+            @String.Format("{0:00}.{1:00}.{2}", item.DataUrodzenia.Day, item.DataUrodzenia.Month, item.DataUrodzenia.Year)
+        </td>
+        <td>
+            <a href="@Url.Action("Details", "Pracownik", new {id = item.ID})" class="btn btn-primary">Szczegóły</a>
+        </td>
+    </tr>
+}
+
+</table>

@@ -57,6 +57,21 @@ namespace eListaGrzybiarze.DAL
                 {
                     ID = 1,
                     UserName = "albertgaw@gmail.com"
+                },
+                new UserConnector
+                {
+                    ID = 2,
+                    UserName = "magik@onet.pl"
+                },
+                new UserConnector
+                {
+                    ID = 3,
+                    UserName = "jaruzel@pzpr.pl"
+                },
+                new UserConnector
+                {
+                    ID = 4,
+                    UserName = "malysz@adam.pl"
                 }
             };
             Userzy.ForEach(s => context.Userzy.Add(s));

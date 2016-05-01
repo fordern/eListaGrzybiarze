@@ -1,0 +1,110 @@
+﻿@using Microsoft.Ajax.Utilities
+@model eListaGrzybiarze.Models.Pracownik
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Pracownik</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            Nazwisko:
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LastName)
+        </dd>
+
+        <dt>
+            Imię:
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FirstName)
+        </dd>
+
+        <dt>
+            Data urodzenia:
+        </dt>
+
+        <dd>
+            @String.Format("{0:00}.{1:00}.{2}", Model.DataUrodzenia.Day, Model.DataUrodzenia.Month, Model.DataUrodzenia.Year)
+        </dd>
+
+    </dl>
+
+    <table class="table">
+    <tr>
+        <th>
+            Dzień pracy
+        </th>
+        <th>
+            Dzień tygodnia
+        </th>
+            <th>
+                Godzina rozpoczęcia
+            </th>
+            <th>
+                Godzina zakończenia
+            </th>
+            <th></th>
+        </tr>
+        @foreach (var praca in Model.DniPracy)
+        {
+            <tr>
+                <td>@String.Format("{0:00}.{1:00}.{2}", praca.PoczatekPracy.Day, praca.PoczatekPracy.Month, praca.PoczatekPracy.Year)</td>
+                @switch (praca.PoczatekPracy.DayOfWeek.ToString())
+                         {
+                             case "Monday":
+                                 <td>Poniedziałek</td>
+                                 break;
+
+                             case "Tuesday":
+                                 <td>Wtorek</td>
+                                 break;
+                              
+                             case "Wednesday":
+                                 <td>Środa</td>
+                                 break;
+                             
+                             case "Thursday":
+                                 <td>Czwartek</td>
+                                 break;
+                                 
+                             case "Friday":
+                                 <td>Piątek</td>
+                                 break;
+                                 
+                             case "Saturday":
+                                 <td>Sobota</td>
+                                 break;
+                                 
+                             case "Sunday":
+                                 <td>Niedziela</td>
+                                 break;
+                                 
+                             default:
+                                 <td></td>
+                                 break;
+                         }
+                
+                <td>@String.Format("{0:00}:{1:00}", praca.PoczatekPracy.Hour, praca.PoczatekPracy.Minute)</td>
+
+                <td>@if (!praca.KoniecPracy.HasValue)
+                {
+                    <a href="@Url.Action("ZakonczPrace", "Pracownik", new {id = Model.ID})" class="btn btn-success">Zakończ!</a>
+                }
+                else
+                {
+                        @String.Format("{0:00}:{1:00}", praca.KoniecPracy.Value.Hour, praca.KoniecPracy.Value.Minute)
+                    }
+                </td>
+            </tr>
+        }
+    </table>
+
+</div>

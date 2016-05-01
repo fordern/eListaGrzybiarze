@@ -1,0 +1,28 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+
+<div class="jumbotron">
+    <h1>eLista</h1>
+    <p class="lead"> Zaloguj się, aby potwierdzić obecność, zarządzać kontem etc.</p>
+</div>
+
+<div class="row">
+    <div class="col-md-4">
+        <h2>Czas pracy</h2>
+        <p>
+            Zobacz historię swoich meldunków w pracy.
+        </p>
+        <p><a class="btn btn-default" href="@Url.Action("Details", "Pracownik")">Zobacz &raquo;</a></p>
+    </div>
+    <div class="col-md-4">
+        <h2>Obecności</h2>
+        <p>Potwierdź swoją obecność, lub zakończ pracę na dziś.</p>
+        <p><a class="btn btn-default" href="@Url.Action("Obecnosc", "Home")">Potwierdź &raquo;</a></p>
+    </div>
+    <div class="col-md-4">
+        <h2>Zarządzaj Kontem</h2>
+        <p>Edytuj swoje dane osobowe</p>
+        <p><a class="btn btn-default" href="@Url.Action("Edit", "Pracownik")">Zarządzaj &raquo;</a></p>
+    </div>
+</div>
