@@ -1,6 +1,5 @@
 ﻿body {
     padding-top: 50px;
-    padding-bottom: 20px;
     background: url("../images/bg.jpg") repeat;
     color: white;
 }
@@ -30,10 +29,30 @@ textarea {
         background: rgba(255,255,255,0.8);
         color: rgb(66,139,202);
         border-radius: 10px !important;
+        margin-left: -10000px;
+        margin-right: 10000px;
+        transition: 1s ease-out;
     }
 
     .jumbotron .lead {
         background: rgba(255,255,255,0.8);
         color: rgb(66,139,202);
         border-radius: 10px !important;
+        margin-left: -10000px;
+        margin-right: 10000px;
+        transition: 1s ease-out;
     }
+
+.body-content{
+    background: rgba(255,255,255,0.5);
+    border-radius: 0px 0px 10px 10px !important;
+}
+.btn-default {
+    background-color: rgb(66,139,202);
+    color: #fff;
+
+}
+
+a {
+    transition: 0.1s ease-in-out;
+}

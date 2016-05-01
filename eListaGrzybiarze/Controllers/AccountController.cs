@@ -65,7 +65,7 @@ namespace eListaGrzybiarze.Controllers
                 }
                 else
                 {
-                    ModelState.AddModelError("", "Invalid username or password.");
+                    ModelState.AddModelError("", "Zły login lub hasło.");
                 }
             }
 
@@ -156,7 +156,7 @@ namespace eListaGrzybiarze.Controllers
                 var user = await UserManager.FindByNameAsync(model.Email);
                 if (user == null || !(await UserManager.IsEmailConfirmedAsync(user.Id)))
                 {
-                    ModelState.AddModelError("", "The user either does not exist or is not confirmed.");
+                    ModelState.AddModelError("", "Użytkownik nie istnieje.");
                     return View();
                 }
 
@@ -204,7 +204,7 @@ namespace eListaGrzybiarze.Controllers
                 var user = await UserManager.FindByNameAsync(model.Email);
                 if (user == null)
                 {
-                    ModelState.AddModelError("", "No user found.");
+                    ModelState.AddModelError("", "Nie znaleziono użytkownika.");
                     return View();
                 }
                 IdentityResult result = await UserManager.ResetPasswordAsync(user.Id, model.Code, model.Password);
@@ -257,10 +257,10 @@ namespace eListaGrzybiarze.Controllers
         public ActionResult Manage(ManageMessageId? message)
         {
             ViewBag.StatusMessage =
-                message == ManageMessageId.ChangePasswordSuccess ? "Your password has been changed."
-                : message == ManageMessageId.SetPasswordSuccess ? "Your password has been set."
-                : message == ManageMessageId.RemoveLoginSuccess ? "The external login was removed."
-                : message == ManageMessageId.Error ? "An error has occurred."
+                message == ManageMessageId.ChangePasswordSuccess ? "Twoje hasło zostało zmienione."
+                : message == ManageMessageId.SetPasswordSuccess ? "Hasło utworzone."
+                : message == ManageMessageId.RemoveLoginSuccess ? "Login zewnętrzny usunięty."
+                : message == ManageMessageId.Error ? "Wystąpił nieoczekiwany błąd."
                 : "";
             ViewBag.HasLocalPassword = HasPassword();
             ViewBag.ReturnUrl = Url.Action("Manage");

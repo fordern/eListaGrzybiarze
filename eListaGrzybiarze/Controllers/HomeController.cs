@@ -18,14 +18,14 @@ namespace eListaGrzybiarze.Controllers
 
         public ActionResult About()
         {
-            ViewBag.Message = "Your application description page.";
+            ViewBag.Message = "Aplikacja stworzona w celu potwierdzania obecności w miejscu pracy.";
 
             return View();
         }
 
         public ActionResult Contact()
         {
-            ViewBag.Message = "Your contact page.";
+            ViewBag.Message = "Kontakty z twórcami.";
 
             return View();
         }
