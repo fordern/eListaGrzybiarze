@@ -16,7 +16,8 @@ namespace eListaGrzybiarze.DAL
                 new Pracownik {DataUrodzenia = DateTime.Parse("1920-05-18"), FirstName = "Karol", LastName = "Wojtyła"},
                 new Pracownik {DataUrodzenia = DateTime.Parse("1978-03-18"), FirstName = "Piotr", LastName = "Łuszcz"},
                 new Pracownik {DataUrodzenia = DateTime.Parse("1923-07-06"), FirstName = "Wojciech", LastName = "Jaruzelski"},
-                new Pracownik {DataUrodzenia = DateTime.Parse("1977-12-03"), FirstName = "Adam", LastName = "Małysz"}
+                new Pracownik {DataUrodzenia = DateTime.Parse("1977-12-03"), FirstName = "Adam", LastName = "Małysz"},
+                new Pracownik {DataUrodzenia = DateTime.Parse("1968-07-30"), FirstName = "Robert", LastName = "Korzeniowski"}
             };
             Pracownicy.ForEach(s => context.Pracownik.Add(s));
             context.SaveChanges();
@@ -72,6 +73,11 @@ namespace eListaGrzybiarze.DAL
                 {
                     ID = 4,
                     UserName = "malysz@adam.pl"
+                },
+                new UserConnector
+                {
+                    ID = 5,
+                    UserName = "bobobo@bobobo.com"
                 }
             };
             Userzy.ForEach(s => context.Userzy.Add(s));

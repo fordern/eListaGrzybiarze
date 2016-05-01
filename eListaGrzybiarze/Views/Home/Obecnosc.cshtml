@@ -2,7 +2,7 @@
 
 <div>
 
-    @if (Model.DniPracy.Last().KoniecPracy.HasValue)
+    @if (Model.DniPracy.Count == 0 || Model.DniPracy.Last().KoniecPracy.HasValue)
     {
         <h3>Kliknij, aby potwierdzić obecność w pracy:</h3>
         <br/>

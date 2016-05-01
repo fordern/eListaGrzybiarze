@@ -42,7 +42,12 @@ namespace eListaGrzybiarze.Controllers
                     connector.ID = connect.ID;
                 }
             }
+            
             Pracownik pracownik = db.Pracownik.Find(connector.ID);
+            if (pracownik == null)
+            {
+                RedirectToAction("Create", "Pracownik");
+            }
             ViewBag.Message = "Potwierdzanie obecności.";
             return View(pracownik);
         }

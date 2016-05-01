@@ -67,7 +67,7 @@ namespace eListaGrzybiarze.Controllers
             if (ModelState.IsValid)
             {
                 db.Pracownik.Add(pracownik);
-                db.Userzy.Add(new UserConnector {ID = db.Userzy.Count() + 1, UserName = User.Identity.Name});
+                db.Userzy.Add(new UserConnector {ID = db.Userzy.ToList().Last().ID + 1, UserName = User.Identity.Name});
                 db.SaveChanges();
                 return RedirectToAction("Index", "Home");
             }
@@ -124,9 +124,6 @@ namespace eListaGrzybiarze.Controllers
                     }
                 }
             Pracownik pracownik = db.Pracownik.Find(connector.ID);
-            
-
-            
             if (pracownik == null)
             {
                 return HttpNotFound();
