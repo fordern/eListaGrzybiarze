@@ -107,7 +107,7 @@ namespace eListaGrzybiarze.Controllers
             {
                 db.Entry(pracownik).State = EntityState.Modified;
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                return RedirectToAction("Index", "Home");
             }
             return View(pracownik);
         }
